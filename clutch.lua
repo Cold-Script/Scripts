@@ -1,4 +1,4 @@
-if game.GameId ~= 2440500124 then return end -- Universe ID
+
 
 local cloneref = cloneref or function(o) return o end
 local function GetService(name)
