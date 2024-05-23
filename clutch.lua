@@ -1228,6 +1228,7 @@ local PlayerTab = Window:AddTab("Player") do
     PlayerTab:AddElementToggle({
         Name = "Fix Exit Delay",
         Flag = "FixExitDelay"
+			Value = true
     })
 
     local Reach = PlayerTab:AddElementSection("Reach") do
@@ -1239,6 +1240,7 @@ local PlayerTab = Window:AddTab("Player") do
         Reach:AddToggle({
             Name = "Prompt Clip",
             Flag = "PromptClip",
+				Value = true
             Callback = function(value)
                 for _, prompt: ProximityPrompt in pairs(workspace.CurrentRooms:GetDescendants()) do
                     if prompt:IsA("ProximityPrompt") and (table.find(promptTable.Clip, prompt.Name) or table.find(promptTable.ClipObjects, prompt.Parent.Name)) then
@@ -1360,6 +1362,7 @@ local ExploitTab = Window:AddTab("Exploits") do
     local NoclipBypassToggle = ExploitTab:AddElementToggle({
         Name = "Noclip Bypass",
         Flag = "NoclipBypass",
+			Value = true
         Callback = function(value)
             if value then
                 oldNoclip = Flags["Noclip"].Value
@@ -1419,6 +1422,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "Anti-Dupe",
             Flag = "AntiDupe",
+				Value = true
             Callback = function(value)
                 for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
                     for _, closet in pairs(room:GetChildren()) do
@@ -1433,11 +1437,13 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "Anti-Eyes",
             Flag = "AntiEyes"
+				Value = true
         })
 
         EntitiesSection:AddToggle({
             Name = "Anti-Snare",
             Flag = "AntiSnare",
+				Value = true
             Callback = function(value)
                 for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
                     if not room:FindFirstChild("Assets") then return end
@@ -1453,6 +1459,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "Anti-Seek",
             Flag = "AntiSeek",
+				Value = true
             Callback = function(value)
                 for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
                     if room:FindFirstChild("TriggerEventCollision") then
@@ -1472,6 +1479,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "Anti-Obstructions",
             Flag = "AntiObstructions",
+				Value = true
             Callback = function(value)
                 for _, obstruction in pairs(workspace.CurrentRooms:GetDescendants()) do
                     if obstruction.Name == "HurtPart" then
@@ -1486,6 +1494,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "Delete Figure",
             Flag = "DeleteFigure",
+				Value = true
             Callback = function(value)
                 if value and latestRoom.Value == 49 then
                     local figure = workspace.CurrentRooms:FindFirstChild("FigureRagdoll", true)
@@ -1515,6 +1524,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "No Glitch",
             Flag = "NoGlitch",
+				Value = true
             Callback = function(value)
                 if not glitchModule then return end
 
@@ -1529,6 +1539,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "No Halt",
             Flag = "NoHalt",
+				Value = true
             Callback = function(value)
                 if not haltModule then return end
 
@@ -1543,6 +1554,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "No Screech",
             Flag = "NoScreech",
+				Value = true
             Callback = function(value)
                 for _, screech in pairs(camera:GetChildren()) do
                     if screech.Name:match("Screech") then
@@ -1563,6 +1575,7 @@ local ExploitTab = Window:AddTab("Exploits") do
         EntitiesSection:AddToggle({
             Name = "No A-90",
             Flag = "NoA90",
+				Value = true
             Callback = function(value)
                 if rawMainGame and rawMainGame:FindFirstChild("RemoteListener") then
                     local module = rawMainGame.RemoteListener:FindFirstChild("A90", true) or rawMainGame.RemoteListener:FindFirstChild("OldA90", true)
@@ -1580,6 +1593,7 @@ local VisualsTab = Window:AddTab("Visuals") do
     local GhostBodyToggle = VisualsTab:AddElementToggle({
         Name = "Ghost Body",
         Flag = "GhostBody",
+			Value = true
         Callback = function(value)
             for _, part in pairs(character:GetChildren()) do
                 if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
@@ -1594,7 +1608,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Increment = 0.05,
             Min = 0,
             Max = 1,
-            Value = 0.5,
+            Value = 1,
             Callback = function(value)
                 if not Flags["GhostBody"].Value then return end
 
@@ -1611,6 +1625,7 @@ local VisualsTab = Window:AddTab("Visuals") do
         AmbientSection:AddToggle({
             Name = "Fullbright",
             Flag = "Fullbright",
+				Value = true
             Callback = function(value)
                 if value then
                     Lighting.Ambient = Color3.new(1, 1, 1)
@@ -1628,6 +1643,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             AmbientSection:AddToggle({
                 Name = "No Fog",
                 Flag = "NoFog",
+					Value = true
                 Callback = function(value)
                     if value then
                         Lighting.Fog.Density = 0
@@ -1643,17 +1659,19 @@ local VisualsTab = Window:AddTab("Visuals") do
         CamManipulation:AddToggle({
             Name = "No Camera Bob",
             Flag = "NoCamBob"
+				Value = true
         })
     
         CamManipulation:AddToggle({
             Name = "No Camera Shake",
             Flag = "NoCamShake"
+				Value = true
         })
     
         CamManipulation:AddSlider({
             Name = "Field Of View",
             Flag = "FOV",
-            Value = 70,
+            Value = 120,
             Min = 70,
             Max = 120
         })
@@ -1664,7 +1682,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Name = "What",
             Flag = "ESPWhat",
             Multi = true,
-            Values = {"Door", "Entity", "Objective", "Item", "Dropped Item", "Gold", "Player"},
+            Values = ({"Door", "Entity", "Objective", "Item", "Dropped Item", "Gold", "Player"},true),
             Callback = function(value, oldValue)
                 if value.Door ~= oldValue.Door then
                     if value.Door then
@@ -1860,13 +1878,13 @@ local VisualsTab = Window:AddTab("Visuals") do
         Esp:AddToggle({
             Name = "Show Tracers",
             Flag = "ESPShowTracers",
-            Value = false
+            Value = true
         })
 
         Esp:AddToggle({
             Name = "Show Distance",
             Flag = "ESPShowDistance",
-            Value = false
+            Value = true
         })
 
         Esp:AddSlider({
@@ -1900,6 +1918,7 @@ local VisualsTab = Window:AddTab("Visuals") do
         Notifier:AddToggle({
             Name = "Notify in Chat",
             Flag = "ChatNotify"
+				Value = true
         })
 
         Notifier:AddToggle({
@@ -1913,6 +1932,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Name = "Message",
             Flag = "EntityChatMessage",
             Text = "Entity '{entity}' has spawned!"
+				Value = true
         })
 
         Notifier:AddDropdown({
@@ -1998,11 +2018,13 @@ local AutomationTab = Window:AddTab("Automation") do
     AutomationTab:AddElementToggle({
         Name = "Auto Heartbeat",
         Flag = "AutoHeartbeat"
+			Value = true
     })
 
     AutomationTab:AddElementToggle({
         Name = "Auto Padlock",
         Flag = "AutoPadlock",
+			Value = true
         Callback = function(value)
             for _, player in pairs(Players:GetPlayers()) do
                 if not player.Character then continue end
@@ -2030,6 +2052,7 @@ local AutomationTab = Window:AddTab("Automation") do
     AutomationTab:AddElementToggle({
         Name = "Auto Breaker Box",
         Flag = "AutoBreakerBox",
+			Value = true
         Callback = function(value)
             if value then
                 local autoConnections = {}
@@ -2523,6 +2546,7 @@ local AutomationTab = Window:AddTab("Automation") do
         AutoPlayToggle:AddToggle({
             Name = "Get Herb",
             Flag = "AutoPlayGetHerb"
+				Value = true
         })
 
         AutoPlayToggle:AddToggle({
@@ -2569,6 +2593,7 @@ if not isHotel then
             PlayerTab:AddElementToggle({
                 Name = "Anti-Anchor",
                 Flag = "AntiAnchor",
+					Value = true
                 Callback = function(value)
                     if value and rootPart then
                         rootPart.Anchored = false
@@ -2647,6 +2672,7 @@ if not isHotel then
                 EntitiesSection:AddToggle({
                     Name = "Anti-Banana",
                     Flag = "AntiBanana",
+						Value = true
                     Callback = function(value)
                         for _, banana in pairs(workspace:GetChildren()) do
                             if banana.Name == "BananaPeel" then
@@ -2659,6 +2685,7 @@ if not isHotel then
                 EntitiesSection:AddToggle({
                     Name = "Anti-Jeff",
                     Flag = "AntiJeff",
+						Value = true
                     Callback = function(value)
                         for _, jeff in pairs(workspace:GetChildren()) do
                             if jeff.Name == "JeffTheKiller" then
@@ -2677,6 +2704,7 @@ if not isHotel then
                 EntitiesSection:AddToggle({
                     Name = "Anti-Lava",
                     Flag = "AntiLava",
+						Value = true
                     Callback = function(value)
                         for _, room in pairs(workspace.CurrentRooms:GetChildren()) do
                             if room:FindFirstChild("ScaryLava") then
