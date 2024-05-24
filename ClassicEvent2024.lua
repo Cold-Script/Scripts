@@ -53,4 +53,22 @@ Section:AddButton({Text="Adopt Me",Default=false,Func=function()
       loadstring(game:HttpGet("https://github.com/ToraScript/Script/blob/main/ClassicAdoptMe?raw=true"))()
     end})
 Section:AddLabel("All Script Made By : ToraIsMe")
-local Section2 =
+local Section2 = Tab:AddRightGroupbox("Miscarriage")
+Section2:AddButton({Text="Players Cheat [Speed,Jump,Fov]",Default=false,Func=function()
+game:GetService("RunService").RenderStepped:Connect(function()
+	workspace.CurrentCamera.FieldOfView = 120
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 35
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 75
+    end)
+end})
+Section2:AddToggle("MyToggle",{Text="No Darkness Effect",Default=false,Callback=function(1)
+            if 1 then
+                game.Lighting.Brightness = 2
+                game.Lighting.FogEnd = 9e9
+                game.Lighting.OutdoorAmbient = Color3.new(1,1,1)
+            else
+                game.Lighting.Brightness = 1
+                game.Lighting.FogEnd = 120
+                game.Lighting.OutdoorAmbient = Color3.new(0,0,0)
+            end
+        end})
