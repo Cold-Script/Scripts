@@ -23,7 +23,7 @@ local SoundService = GetService("SoundService")
 local TextChatService = GetService("TextChatService")
 local UserInputService = GetService("UserInputService")
 
-local Midnight, Flags = loadstring(game:HttpGet("https://raw.githubusercontent.com/deividcomsono/Midnight/main/Source.lua"))()
+local Midnight, Flags = loadstring(game:HttpGet("https://raw.githubusercontent.com/Cold-Script/Midnight/main/Source.lua"))()
 
 local Console = loadstring(game:HttpGet("https://raw.githubusercontent.com/mstudio45/MSDOORS/main/Utils/Console/Utility.lua"))() -- Made by Upio
 local message = Console.custom_console_progressbar({
