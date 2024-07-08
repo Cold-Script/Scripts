@@ -1153,7 +1153,7 @@ local PlayerTab = Window:AddTab("Player") do
         Flag = "SpeedBoost",
         Increment = 0.5,
         Min = 0,
-	Value = 7,
+	Value = 4,
         Max = isFools and 50 or 7,
     })
 
@@ -1276,7 +1276,7 @@ local PlayerTab = Window:AddTab("Player") do
         Reach:AddSlider({
             Name = "Prompt Range Boost",
             Flag = "PromptRangeBoost",
-            Increment = 0.05,
+            Increment = 2,
             Min = 1,
             Max = 2,
 	    Value = 2,
@@ -1325,8 +1325,8 @@ local PlayerTab = Window:AddTab("Player") do
         })
     end
 
-    local MiscSection = PlayerTab:AddElementSection("Misc") do
-       MiscSection:AddButton({
+    
+       PlayerTab:AddButton({
             Name = "Die",
             DoubleClick = true,
             Callback = function()
@@ -1335,7 +1335,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Revive",
             DoubleClick = true,
             Callback = function()
@@ -1343,7 +1343,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Play Again",
             DoubleClick = true,
             Callback = function()
@@ -1358,14 +1358,13 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Lobby",
             DoubleClick = true,
             Callback = function()
                 remotesFolder.Lobby:FireServer()
             end
         })
-    end
 end
 
 local ExploitTab = Window:AddTab("Exploits") do
@@ -1943,7 +1942,7 @@ local VisualsTab = Window:AddTab("Visuals") do
         Notifier:AddTextbox({
             Name = "Message",
             Flag = "EntityChatMessage",
-            Text = "Entity '{entity}' has spawned!"
+            Text = "{entity} has spawned!"
         })
 
         Notifier:AddDropdown({
