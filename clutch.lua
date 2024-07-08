@@ -1,4 +1,4 @@
-if game.GameId ~= 2440500124 then return end -- Universe ID
+
 
 if identifyexecutor and identifyexecutor():gsub(" ", "") == "Solara" then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/deividcomsono/Scripts/main/clutch-solara.lua"))()
