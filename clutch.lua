@@ -1325,8 +1325,9 @@ local PlayerTab = Window:AddTab("Player") do
         })
     end
 
-    
-       PlayerTab:AddButton({
+    local MiscSection = PlayerTab:AddElementSection("Misc") do
+		
+       MiscSection:AddButton({
             Name = "Die",
             DoubleClick = true,
             Callback = function()
@@ -1335,7 +1336,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        PlayerTab:AddButton({
+        MiscSection:AddButton({
             Name = "Revive",
             DoubleClick = true,
             Callback = function()
@@ -1343,7 +1344,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        PlayerTab:AddButton({
+        MiscSection:AddButton({
             Name = "Play Again",
             DoubleClick = true,
             Callback = function()
@@ -1358,13 +1359,14 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        PlayerTab:AddButton({
+        MiscSection:AddButton({
             Name = "Lobby",
             DoubleClick = true,
             Callback = function()
                 remotesFolder.Lobby:FireServer()
             end
         })
+	end
 end
 
 local ExploitTab = Window:AddTab("Exploits") do
