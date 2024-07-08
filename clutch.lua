@@ -1144,7 +1144,8 @@ local Window = Midnight:CreateWindow({
 local PlayerTab = Window:AddTab("Player") do
     local Speed = PlayerTab:AddElementToggle({
         Name = "Speed",
-        Flag = "Speed"
+        Flag = "Speed",
+	Value = true
     })
 
     Speed:AddSlider({
@@ -1172,7 +1173,8 @@ local PlayerTab = Window:AddTab("Player") do
 
     PlayerTab:AddElementToggle({
         Name = "Noclip",
-        Flag = "Noclip"
+        Flag = "Noclip",
+	Value = true
     })
 
     PlayerTab:AddElementToggle({
@@ -1186,7 +1188,7 @@ local PlayerTab = Window:AddTab("Player") do
         end
     })
 
-    local FlyToggle = PlayerTab:AddElementToggle({
+    PlayerTab:AddElementToggle({
         Name = "Fly",
         Flag = "Fly",
         Keybind = Enum.KeyCode.F,
@@ -1214,7 +1216,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         end
     }) do
-        FlyToggle:AddSlider({
+        PlayerTab:AddSlider({
             Name = "Fly Speed",
             Flag = "FlySpeed",
             Increment = 0.05,
@@ -1223,7 +1225,7 @@ local PlayerTab = Window:AddTab("Player") do
             Value = 1
         })
 
-        FlyToggle:AddSlider({
+        PlayerTab:AddSlider({
             Name = "Up Offset",
             Flag = "FlyUpOffset",
             Increment = 0.05,
@@ -1238,14 +1240,14 @@ local PlayerTab = Window:AddTab("Player") do
 	Value = true
     })
 
-    local Reach = PlayerTab:AddElementSection("Reach") do
-        Reach:AddToggle({
+    do
+        PlayerTab:AddToggle({
             Name = "Door Reach",
             Flag = "DoorReach",
 	    Value = true
         })
 
-        Reach:AddToggle({
+        PlayerTab:AddToggle({
             Name = "Prompt Clip",
             Flag = "PromptClip",
 	    Value = true,
@@ -1271,7 +1273,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        Reach:AddSlider({
+        PlayerTab:AddSlider({
             Name = "Prompt Range Boost",
             Flag = "PromptRangeBoost",
             Increment = 0.05,
@@ -1292,8 +1294,8 @@ local PlayerTab = Window:AddTab("Player") do
         })
     end
 
-    local TrollingSection = PlayerTab:AddElementSection("Trolling") do
-        TrollingSection:AddToggle({
+    do
+        PlayerTab:AddToggle({
             Name = "Twerk",
             Flag = "Twerk",
             Callback = function(value)
@@ -1307,7 +1309,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        TrollingSection:AddToggle({
+        PlayerTab:AddToggle({
             Name = "Upside Down",
             Flag = "UpsideDown",
             Callback = function(value)
@@ -1323,8 +1325,8 @@ local PlayerTab = Window:AddTab("Player") do
         })
     end
 
-    local MiscSection = PlayerTab:AddElementSection("Misc") do
-        MiscSection:AddButton({
+    do
+        PlayerTab:AddButton({
             Name = "Die",
             DoubleClick = true,
             Callback = function()
@@ -1333,7 +1335,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Revive",
             DoubleClick = true,
             Callback = function()
@@ -1341,7 +1343,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Play Again",
             DoubleClick = true,
             Callback = function()
@@ -1356,7 +1358,7 @@ local PlayerTab = Window:AddTab("Player") do
             end
         })
 
-        MiscSection:AddButton({
+        PlayerTab:AddButton({
             Name = "Lobby",
             DoubleClick = true,
             Callback = function()
@@ -1685,8 +1687,8 @@ local VisualsTab = Window:AddTab("Visuals") do
         })
     end
 
-    local Esp = VisualsTab:AddElementSection("ESP") do
-        Esp:AddDropdown({
+    do
+        VisualsTab:AddDropdown({
             Name = "What",
             Flag = "ESPWhat",
             Multi = true,
@@ -1814,9 +1816,9 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddDivider()
+        VisualsTab:AddDivider()
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Door ESP Color",
             Flag = "DoorESPColor",
             Color = Color3.new(0, 1, 1),
@@ -1827,7 +1829,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Entity ESP Color",
             Flag = "EntityESPColor",
             Color = Color3.new(1, 0, 0),
@@ -1838,7 +1840,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Objective ESP Color",
             Flag = "ObjectiveESPColor",
             Color = Color3.new(0, 1, 0),
@@ -1849,7 +1851,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Item ESP Color",
             Flag = "ItemESPColor",
             Color = Color3.new(1, 0, 1),
@@ -1860,7 +1862,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Gold ESP Color",
             Flag = "GoldESPColor",
             Color = Color3.new(1, 1, 0),
@@ -1871,7 +1873,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddColorPicker({
+        VisualsTab:AddColorPicker({
             Name = "Player ESP Color",
             Flag = "PlayerESPColor",
             Color = Color3.new(1, 1, 1),
@@ -1882,21 +1884,21 @@ local VisualsTab = Window:AddTab("Visuals") do
             end
         })
 
-        Esp:AddDivider()
+        VisualsTab:AddDivider()
 
-        Esp:AddToggle({
+        VisualsTab:AddToggle({
             Name = "Show Tracers",
             Flag = "ESPShowTracers",
             Value = true
         })
 
-        Esp:AddToggle({
+        VisualsTab:AddToggle({
             Name = "Show Distance",
             Flag = "ESPShowDistance",
             Value = true
         })
 
-        Esp:AddSlider({
+        VisualsTab:AddSlider({
             Name = "Text Size",
             Flag = "ESPTextSize",
             Min = 16,
@@ -1904,7 +1906,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Value = 22,
         })
 
-        Esp:AddSlider({
+        VisualsTab:AddSlider({
             Name = "Fill Transparency",
             Flag = "ESPFillTransparency",
             Increment = 0.05,
@@ -1913,7 +1915,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Value = 0.5
         })
 
-        Esp:AddSlider({
+        VisualsTab:AddSlider({
             Name = "Outline Transparency",
             Flag = "ESPOutlineTransparency",
             Increment = 0.05,
