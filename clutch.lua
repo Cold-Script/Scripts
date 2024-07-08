@@ -1242,12 +1242,11 @@ local PlayerTab = Window:AddTab("Player") do
 	
     PlayerTab:AddElementToggle({
         Name = "GodMode",
-        Flag = "GodMode",
 	Value = true,
 	Callback = function(value)
 	if value then
 	game.Players.LocalPlayer.Character:FindFirstChild("Collision").Position-Vector3.new(0,10,0)
-			else
+	else
 	game.Players.LocalPlayer.Character:FindFirstChild("Collision").Position-Vector3.new(0,-10,0)
 		end
 	end
@@ -2022,6 +2021,7 @@ local AutomationTab = Window:AddTab("Automation") do
     local AutoInteractToggle = AutomationTab:AddElementToggle({
         Name = "Auto Interact",
         Flag = "AutoInteract",
+	Value = true,
         Keybind = Enum.KeyCode.R,
         Mode = "Hold"
     }) do
