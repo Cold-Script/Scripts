@@ -1239,6 +1239,20 @@ local PlayerTab = Window:AddTab("Player") do
         Flag = "FixExitDelay",
 	Value = true
     })
+	
+    PlayerTab:AddElementToggle({
+        Name = "GodMode",
+        Flag = "GodMode",
+	Value = true,
+	Callback = function(value)
+	if value then
+	game.Players.LocalPlayer.Character:FindFirstChild("Collision").Position-Vector3.new(0,10,0)
+			else
+	game.Players.LocalPlayer.Character:FindFirstChild("Collision").Position-Vector3.new(0,-10,0)
+		end
+	end
+    })
+	
 
     local Reach = PlayerTab:AddElementSection("Reach") do
         Reach:AddToggle({
