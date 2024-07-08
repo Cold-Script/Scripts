@@ -1670,6 +1670,7 @@ local VisualsTab = Window:AddTab("Visuals") do
             Flag = "ESPWhat",
             Multi = true,
             Values = {"Door", "Entity", "Objective", "Item", "Dropped Item", "Gold", "Player"},
+	    Value =  {"Door", "Entity", "Objective", "Item", "Dropped Item", "Gold", "Player"},
             Callback = function(value, oldValue)
                 if value.Door ~= oldValue.Door then
                     if value.Door then
