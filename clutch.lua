@@ -1234,7 +1234,7 @@ local PlayerTab = Window:AddTab("Player") do
         })
     end
 
-    FlyToggle:AddElementToggle({
+    PlayerTab:AddElementToggle({
         Name = "Fix Exit Delay",
         Flag = "FixExitDelay",
 	Value = true
