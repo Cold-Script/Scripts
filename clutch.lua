@@ -2028,7 +2028,8 @@ local AutomationTab = Window:AddTab("Automation") do
 
         AutoInteractToggle:AddToggle({
             Name = "Ignore Gold",
-            Flag = "AutoInteractIgnoreGold"
+            Flag = "AutoInteractIgnoreGold",
+	    Value = true
         })
     end
 
@@ -2036,7 +2037,7 @@ local AutomationTab = Window:AddTab("Automation") do
         Name = "Auto Heartbeat",
         Flag = "AutoHeartbeat",
 	Value = true
-    })
+    }) 
 
     AutomationTab:AddElementToggle({
         Name = "Auto Padlock",
