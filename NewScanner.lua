@@ -56,7 +56,7 @@ local function u6(p1)
 				end);
 			end;
 		end
-		if v10:IsA("Model") and (v10.Name == "KeyObtain" or v10.Name == "LeverForGate" or v10.Name == "LiveBreakerPolePickup" or v10.Name == "LiveHintBook") then
+		if v10:IsA("Model") and (v10.Name == "TimerLever" or v10.Name == "KeyObtain" or v10.Name == "LeverForGate" or v10.Name == "LiveBreakerPolePickup" or v10.Name == "LiveHintBook") then
 			local v12 = Storage.Star:Clone();
 			v12.CFrame = v10.PrimaryPart.CFrame;
 			v12.Parent = l__ScreenUI__1.ViewSpecial;
